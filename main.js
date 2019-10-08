@@ -21,7 +21,7 @@ class General  {
 }
 
 class Ariel extends General { 
-    hitpoints = 80; 
+    hitpoints = 10; 
     damageTaken = 7; 
 
     // allDead() { 
@@ -30,12 +30,12 @@ class Ariel extends General {
 }
 
 class Flounder extends Ariel {
-    hitpoints = 68; 
+    hitpoints = 18; 
     damageTaken = 10; 
 }
 
 class Fish extends Flounder { 
-    hitpoints = 60; 
+    hitpoints = 30; 
     damageTaken = 12; 
 }
 
@@ -74,16 +74,23 @@ const hitSeaLife = () => {
         document.querySelectorAll("div")[myIndex].innerHTML = seaLife[myIndex].hitpoints;
     
         if (seaLife[myIndex].isDead && (myIndex === 0)) {
-            // gameOver();
+            gameOver();
         }
     });    
 }
 
 
-// const gameOver = () => {
+const gameOver = () => {
+    alert("game over");
+    document.querySelector("#restartButton").style.display="block";
+ }
 
-//  }
-
+ const restart = () => {
+     document.getElementById("restartButton").addEventListener("click", event => { 
+         window.location.reload()
+// this is not doing what I want it to ... the restart should just reload the whole page essentially
+     });
+ }
 
 let seaLife = compileSeaLife();
 

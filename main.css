@@ -63,7 +63,7 @@ h1, div {
     background-position: bottom;
 }
 
-button { 
+#button { 
     margin-top: 20px;
     background: transparent;
     background-image: url(./img/ursula.gif);
@@ -78,4 +78,8 @@ button {
     overflow: visible;
     
    */
+}
+
+#restartButton {
+    display: none;
 }
