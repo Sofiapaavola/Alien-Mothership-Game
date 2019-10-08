@@ -1,0 +1,20 @@
+* { 
+    margin: 0; 
+    border: 0; 
+    box-sizing: border-box;
+}
+
+/* body { 
+    
+} */
+
+main { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+button { 
+    color: red; 
+    border: 2px solid salmon;
+}
