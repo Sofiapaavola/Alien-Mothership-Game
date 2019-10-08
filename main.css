@@ -35,7 +35,7 @@ h1, div {
 }
 
 .box { 
-    border: white 2px dotted;
+    border: white 1.5px dotted;
     height: 100px;
     width: 100px;
     margin: 2%;
@@ -64,10 +64,13 @@ h1, div {
 }
 
 button { 
-    color: red; 
-    border: 2px solid salmon;
     margin-top: 20px;
-    background-image: url(./img/ursula.gif) 3px 5px no-repeat;
+    background: transparent;
+    background-image: url(./img/ursula.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;  
     cursor: pointer;
     /* padding-left: 35px;
     padding-right: 15px;

@@ -74,13 +74,15 @@ const hitSeaLife = () => {
         document.querySelectorAll("div")[myIndex].innerHTML = seaLife[myIndex].hitpoints;
     
         if (seaLife[myIndex].isDead && (myIndex === 0)) {
-            alert("Game Over");  
+            // gameOver();
         }
     });    
 }
 
 
+// const gameOver = () => {
 
+//  }
 
 
 let seaLife = compileSeaLife();
