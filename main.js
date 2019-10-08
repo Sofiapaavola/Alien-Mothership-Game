@@ -21,21 +21,17 @@ class General  {
 }
 
 class Ariel extends General { 
-    hitpoints = 10; 
+    hitpoints = 80; 
     damageTaken = 7; 
-
-    // allDead() { 
-    //     if 
-    // }
 }
 
 class Flounder extends Ariel {
-    hitpoints = 18; 
+    hitpoints = 68; 
     damageTaken = 10; 
 }
 
 class Fish extends Flounder { 
-    hitpoints = 30; 
+    hitpoints = 60; 
     damageTaken = 12; 
 }
 
