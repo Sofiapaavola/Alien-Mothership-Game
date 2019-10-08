@@ -2,19 +2,77 @@
     margin: 0; 
     border: 0; 
     box-sizing: border-box;
+    font-family: 'Merienda', cursive;
 }
 
-/* body { 
-    
-} */
+body { 
+    background-image: url(./img/bubbles.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 main { 
     display: flex; 
+    flex-direction: column;
     justify-content: center; 
-    align-items: center;
+    margin-top: 2%;   
+}
+
+h1, div { 
+    text-align: center;
+    color: white;
+}
+
+.units { 
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.bottom { 
+    display: flex; 
+    justify-content: center;
+}
+
+.box { 
+    border: white 2px dotted;
+    height: 100px;
+    width: 100px;
+    margin: 2%;
+}
+
+.ariel { 
+    
+    background-image: url(./img/ariel.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.flounder {
+    background-image: url(./img/flounder.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+}
+
+.fish { 
+    background-image: url(./img/seb.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
 }
 
 button { 
     color: red; 
     border: 2px solid salmon;
+    margin-top: 20px;
+    background-image: url(./img/ursula.gif) 3px 5px no-repeat;
+    cursor: pointer;
+    /* padding-left: 35px;
+    padding-right: 15px;
+    outline: none;
+    overflow: visible;
+    
+   */
 }

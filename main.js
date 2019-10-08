@@ -41,8 +41,8 @@ class Fish extends Flounder {
 
 const compileSeaLife = () => { 
     const NumAriel = 1; 
-    const NumFlounder = 0; 
-    const NumFish = 0; 
+    const NumFlounder = 5; 
+    const NumFish = 8; 
 
     let ariel = []; 
     let flounders = []; 
@@ -71,17 +71,15 @@ const hitSeaLife = () => {
     document.getElementById("button").addEventListener("click", event => { 
         let myIndex = Math.floor(Math.random()*seaLife.length);
         seaLife[myIndex].whenHit();
-
-        if myIndex
-
-        if (seaLife[myIndex].isDead) { 
-            console.log("I am dead.");
+        document.querySelectorAll("div")[myIndex].innerHTML = seaLife[myIndex].hitpoints;
+    
+        if (seaLife[myIndex].isDead && (myIndex === 0)) {
+            alert("Game Over");  
         }
-        
-        console.log(seaLife);
-        console.log(seaLife[myIndex]);
     });    
 }
+
+
 
 
 
