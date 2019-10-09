@@ -87,25 +87,6 @@ const hitSeaLife = () => {
   });
 };
 
-const setUpGame = () => {
-  // this function should include the HTML build up of the game
-};
-
-// const createSeaSection = (type) => {
-//     let section = document.createElement("section");
-//     section.setAttribute("class",type);
-//     console.log("i work");
-//     return section;
-// }
-
-const createTargetsToPushToHTML = () => {
-  createSeaSection(sea);
-  // this can just be placed ideally into the loop
-};
-
-//  gameArea.append(new_enemy);
-//  where gameArea is your parent
-
 const gameOver = () => {
   alert("Thank you for your efforts, you have been a huge help");
   document.querySelector("#restartButton").style.display = "block";
