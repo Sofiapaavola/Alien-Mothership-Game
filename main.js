@@ -66,26 +66,29 @@ const compileSeaLife = () => {
   }
 
   const seaList = [ariel, flounders, fishes].flat();
-  console.log(seaList);
   return seaList;
 };
 
-const hitSeaLife = () => {
-  document.getElementById("button").addEventListener("click", event => {
-    let myIndex = Math.floor(Math.random() * seaLife.length);
-    seaLife[myIndex].whenHit();
-    document.querySelectorAll("div")[myIndex].innerHTML =
-      seaLife[myIndex].hitpoints;
+const start = () => {
+  document.getElementById("button").addEventListener("click", hitSeaLife)
 
-    if (seaLife[myIndex].isDead) {
-      document.querySelectorAll("div")[myIndex].classList.add("splash");
-    }
-
-    if (seaLife[myIndex].isDead && myIndex === 0) {
-      gameOver();
-    }
-  });
 };
+
+const hitSeaLife = () => {
+        let myIndex = Math.floor(Math.random() * seaLife.length);
+        seaLife[myIndex].whenHit();
+        document.querySelectorAll("div")[myIndex].innerHTML =
+          seaLife[myIndex].hitpoints;
+    
+        if (seaLife[myIndex].isDead) {
+          document.querySelectorAll("div")[myIndex].classList.add("splash");
+        }
+    
+        if (seaLife[myIndex].isDead && myIndex === 0) {
+          gameOver();
+        }
+}
+
 
 const gameOver = () => {
   alert("Thank you for your efforts, you have been a huge help");
@@ -101,4 +104,4 @@ const restart = () => {
 
 let seaLife = compileSeaLife();
 
-hitSeaLife();
+start();
