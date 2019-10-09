@@ -79,28 +79,15 @@ const hitSeaLife = () => {
 const gameOver = () => {
     alert("game over");
     document.querySelector("#restartButton").style.display="block";
+    restart();
  }
 
  const restart = () => {
      document.getElementById("restartButton").addEventListener("click", event => { 
-         window.location.reload()
-// this is not doing what I want it to ... the restart should just reload the whole page essentially
+         return window.location.reload();
      });
  }
 
 let seaLife = compileSeaLife();
 
 hitSeaLife();
-
-
-
-// main functions include: 
-
-    // check if the game is over(?)
-        // - this will include the hitpoint decreasing - innerHTML change 
-
-    // game over 
-
-    // hit random 
-
-    // game restart 

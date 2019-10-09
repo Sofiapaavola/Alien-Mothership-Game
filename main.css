@@ -31,7 +31,9 @@ h1, div {
 
 .bottom { 
     display: flex; 
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .box { 
@@ -72,14 +74,17 @@ h1, div {
     height: 100px;
     width: 100px;  
     cursor: pointer;
-    /* padding-left: 35px;
-    padding-right: 15px;
-    outline: none;
-    overflow: visible;
-    
-   */
 }
 
 #restartButton {
     display: none;
+    margin-top: 2%;
+    cursor: pointer;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    background-color: coral;
+    color: white;
+    border-radius: 2px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 18px 0 rgba(0,0,0,0.19);
 }
