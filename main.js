@@ -1,93 +1,98 @@
-class General  { 
-    hitpoints = 80; 
-    damageTaken = 7; 
-    isDead = false; 
+class General {
+  hitpoints = 80;
+  damageTaken = 7;
+  isDead = false;
 
-    whenHit(){ 
-       if (this.hitpoints > 0) { 
-           this.hitpoints -= this.damageTaken;
-        };
-        this.dies(); 
+  whenHit() {
+    if (this.hitpoints > 0) {
+      this.hitpoints -= this.damageTaken;
     }
+    this.dies();
+  }
 
-    dies() { 
-        if (this.hitpoints == 0){ 
-           this.isDead = true; 
-        } else if (this.hitpoints < 0) { 
-            this.isDead = true;
-            this.hitpoints = 0;
-        }
+  dies() {
+    if (this.hitpoints == 0) {
+      this.isDead = true;
+    } else if (this.hitpoints < 0) {
+      this.isDead = true;
+      this.hitpoints = 0;
     }
+  }
 }
 
-class Ariel extends General { 
-    hitpoints = 80; 
-    damageTaken = 7; 
+class Ariel extends General {
+  hitpoints = 80;
+  damageTaken = 7;
 }
 
 class Flounder extends Ariel {
-    hitpoints = 68; 
-    damageTaken = 10; 
+  hitpoints = 68;
+  damageTaken = 10;
 }
 
-class Fish extends Flounder { 
-    hitpoints = 60; 
-    damageTaken = 12; 
+class Fish extends Flounder {
+  hitpoints = 60;
+  damageTaken = 12;
 }
 
-const compileSeaLife = () => { 
-    const NumAriel = 1; 
-    const NumFlounder = 5; 
-    const NumFish = 8; 
+const compileSeaLife = () => {
+  const NumAriel = 1;
+  const NumFlounder = 5;
+  const NumFish = 8;
 
-    let ariel = []; 
-    let flounders = []; 
-    let fishes = []; 
-    
-    const rupaul = new Ariel(); 
-    ariel.push(rupaul);
+  let ariel = [];
+  let flounders = [];
+  let fishes = [];
 
-    for(let i = 0; i < NumFlounder; i++) {
-        let flounder = new Flounder(); 
-        flounders.push(flounder);
+  const rupaul = new Ariel();
+  ariel.push(rupaul);
+
+  for (let i = 0; i < NumFlounder; i++) {
+    let flounder = new Flounder();
+    flounders.push(flounder);
+  }
+
+  for (let i = 0; i < NumFish; i++) {
+    let fish = new Fish();
+    fishes.push(fish);
+  }
+
+  const seaList = [ariel, flounders, fishes].flat();
+  console.log(seaList);
+  return seaList;
+};
+
+const hitSeaLife = () => {
+  document.getElementById("button").addEventListener("click", event => {
+    let myIndex = Math.floor(Math.random() * seaLife.length);
+    seaLife[myIndex].whenHit();
+    document.querySelectorAll("div")[myIndex].innerHTML =
+      seaLife[myIndex].hitpoints;
+
+    if (seaLife[myIndex].isDead) {
+        document.querySelectorAll("div")[myIndex].classList.add("poof");
     }
 
-    for(let i = 0; i < NumFish; i++) {
-        let fish = new Fish(); 
-        fishes.push(fish);
+    if (seaLife[myIndex].isDead && myIndex === 0) {
+      gameOver();
     }
-    
-    const seaList = [ariel,flounders,fishes].flat(); 
-    console.log(seaList);
-    return seaList;
-}
-
-const hitSeaLife = () => { 
-
-    document.getElementById("button").addEventListener("click", event => { 
-        let myIndex = Math.floor(Math.random()*seaLife.length);
-        seaLife[myIndex].whenHit();
-        document.querySelectorAll("div")[myIndex].innerHTML = seaLife[myIndex].hitpoints;
-    
-        if (seaLife[myIndex].isDead && (myIndex === 0)) {
-            gameOver();
-        }
-    });    
-}
+  });
+};
 
 
 const gameOver = () => {
-    alert("game over");
-    document.querySelector("#restartButton").style.display="block";
-    restart();
- }
+  alert("Thank you for your efforts, you have been a huge help");
+  document.querySelector("#restartButton").style.display = "block";
+  restart();
+};
 
- const restart = () => {
-     document.getElementById("restartButton").addEventListener("click", event => { 
-         return window.location.reload();
-     });
- }
+const restart = () => {
+  document.getElementById("restartButton").addEventListener("click", event => {
+    return window.location.reload();
+  });
+};
 
 let seaLife = compileSeaLife();
 
 hitSeaLife();
+
