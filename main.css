@@ -28,7 +28,7 @@ p {
     font-size: 10px;
 }
 
-.units { 
+#units { 
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;

@@ -44,17 +44,25 @@ const compileSeaLife = () => {
   let flounders = [];
   let fishes = [];
 
-  const rupaul = new Ariel();
-  ariel.push(rupaul);
+  for (let i = 0; i < NumAriel; i++) {
+    const rupaul = new Ariel();
+    ariel.push(rupaul);
+    const element = `<div class="box ariel"> 80 </div>`;
+    document.getElementById("units").innerHTML += element;
+  }
 
   for (let i = 0; i < NumFlounder; i++) {
     let flounder = new Flounder();
     flounders.push(flounder);
+    const element = `<div class="box flounder"> 68 </div>`;
+    document.getElementById("units").innerHTML += element;
   }
 
   for (let i = 0; i < NumFish; i++) {
     let fish = new Fish();
     fishes.push(fish);
+    const element = `<div class="box fish"> 60 </div>`;
+    document.getElementById("units").innerHTML += element;
   }
 
   const seaList = [ariel, flounders, fishes].flat();
@@ -70,7 +78,7 @@ const hitSeaLife = () => {
       seaLife[myIndex].hitpoints;
 
     if (seaLife[myIndex].isDead) {
-        document.querySelectorAll("div")[myIndex].classList.add("splash");
+      document.querySelectorAll("div")[myIndex].classList.add("splash");
     }
 
     if (seaLife[myIndex].isDead && myIndex === 0) {
@@ -80,8 +88,23 @@ const hitSeaLife = () => {
 };
 
 const setUpGame = () => {
-// this function should include the HTML build up of the game 
-}
+  // this function should include the HTML build up of the game
+};
+
+// const createSeaSection = (type) => {
+//     let section = document.createElement("section");
+//     section.setAttribute("class",type);
+//     console.log("i work");
+//     return section;
+// }
+
+const createTargetsToPushToHTML = () => {
+  createSeaSection(sea);
+  // this can just be placed ideally into the loop
+};
+
+//  gameArea.append(new_enemy);
+//  where gameArea is your parent
 
 const gameOver = () => {
   alert("Thank you for your efforts, you have been a huge help");
@@ -98,4 +121,3 @@ const restart = () => {
 let seaLife = compileSeaLife();
 
 hitSeaLife();
-
