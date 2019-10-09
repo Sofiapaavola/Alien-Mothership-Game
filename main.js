@@ -70,7 +70,7 @@ const hitSeaLife = () => {
       seaLife[myIndex].hitpoints;
 
     if (seaLife[myIndex].isDead) {
-        document.querySelectorAll("div")[myIndex].classList.add("poof");
+        document.querySelectorAll("div")[myIndex].classList.add("splash");
     }
 
     if (seaLife[myIndex].isDead && myIndex === 0) {
