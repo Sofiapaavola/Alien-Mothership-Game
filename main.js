@@ -79,6 +79,9 @@ const hitSeaLife = () => {
   });
 };
 
+const setUpGame = () => {
+// this function should include the HTML build up of the game 
+}
 
 const gameOver = () => {
   alert("Thank you for your efforts, you have been a huge help");
