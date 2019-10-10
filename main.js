@@ -81,6 +81,16 @@ const hitSeaLife = () => {
   });
   
   let myIndex = Math.floor(Math.random() * aliveArray.length);
+  // because the aliveArray length is smaller - because the html isnt updating dynamically it effects the rest of the script 
+  
+  // if isDead = true then focus only on alive array ... 
+  
+  // if 4 dies then 5 becomes the new four (switch statement??)
+
+  // hard code that there is always the length -- when 0 
+
+  // 
+
   let aliveIndices = []
   aliveArray.forEach(instance => {
     console.log(seaLife.indexOf(instance));
@@ -88,21 +98,19 @@ const hitSeaLife = () => {
   });
   console.log(myIndex, "hey");
   console.log('ALIVE ARRAY',aliveArray);
+  console.log(aliveIndices, "yo solve it");
   //seaLife = aliveArray;
   instanceToHit = seaLife[aliveIndices[myIndex]];
-//  seaLife[myIndex].whenHit();
+  //seaLife[myIndex].whenHit();
   instanceToHit.whenHit();
-  //console.log(seaLife)
 
-  //console.log(seaLife[myIndex].hitpoints)
   document.querySelectorAll("div")[myIndex].innerHTML =
     seaLife[myIndex].hitpoints;
 
+  console.log(seaLife);
   if (seaLife[myIndex].isDead) {
     document.querySelectorAll("div")[myIndex].classList.add("splash");
   };
-
-
 
   if (seaLife[myIndex].isDead && myIndex === 0) {
     gameOver();
