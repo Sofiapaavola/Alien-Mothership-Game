@@ -14,8 +14,8 @@ class General {
     if (this.hitpoints == 0) {
       this.isDead = true;
     } else if (this.hitpoints < 0) {
-      this.isDead = true;
       this.hitpoints = 0;
+      this.isDead = true;
     }
   }
 }
@@ -70,24 +70,44 @@ const compileSeaLife = () => {
 };
 
 const start = () => {
-  document.getElementById("button").addEventListener("click", hitSeaLife)
-
+  document.getElementById("button").addEventListener("click", hitSeaLife);
 };
 
 const hitSeaLife = () => {
-        let myIndex = Math.floor(Math.random() * seaLife.length);
-        seaLife[myIndex].whenHit();
-        document.querySelectorAll("div")[myIndex].innerHTML =
-          seaLife[myIndex].hitpoints;
-    
-        if (seaLife[myIndex].isDead) {
-          document.querySelectorAll("div")[myIndex].classList.add("splash");
-        }
-    
-        if (seaLife[myIndex].isDead && myIndex === 0) {
-          gameOver();
-        }
-}
+
+  
+  let aliveArray = seaLife.filter(singleSeaLife => { 
+    return !singleSeaLife.isDead; 
+  });
+  
+  let myIndex = Math.floor(Math.random() * aliveArray.length);
+  let aliveIndices = []
+  aliveArray.forEach(instance => {
+    console.log(seaLife.indexOf(instance));
+    aliveIndices.push(seaLife.indexOf(instance))
+  });
+  console.log(myIndex, "hey");
+  console.log('ALIVE ARRAY',aliveArray);
+  //seaLife = aliveArray;
+  instanceToHit = seaLife[aliveIndices[myIndex]];
+//  seaLife[myIndex].whenHit();
+  instanceToHit.whenHit();
+  //console.log(seaLife)
+
+  //console.log(seaLife[myIndex].hitpoints)
+  document.querySelectorAll("div")[myIndex].innerHTML =
+    seaLife[myIndex].hitpoints;
+
+  if (seaLife[myIndex].isDead) {
+    document.querySelectorAll("div")[myIndex].classList.add("splash");
+  };
+
+
+
+  if (seaLife[myIndex].isDead && myIndex === 0) {
+    gameOver();
+  }
+};
 
 
 const gameOver = () => {
