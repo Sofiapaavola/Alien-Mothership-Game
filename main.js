@@ -14,8 +14,8 @@ class General {
     if (this.hitpoints == 0) {
       this.isDead = true;
     } else if (this.hitpoints < 0) {
-      this.isDead = true;
       this.hitpoints = 0;
+      this.isDead = true;
     }
   }
 }
@@ -74,20 +74,37 @@ const start = () => {
 };
 
 const hitSeaLife = () => {
-        let myIndex = Math.floor(Math.random() * seaLife.length);
-        seaLife[myIndex].whenHit();
-        document.querySelectorAll("div")[myIndex].innerHTML =
-          seaLife[myIndex].hitpoints;
-    
-        if (seaLife[myIndex].isDead) {
-          document.querySelectorAll("div")[myIndex].classList.add("splash");
-        }
-    
-        if (seaLife[myIndex].isDead && myIndex === 0) {
-          gameOver();
-        }
-}
+  let aliveArray = seaLife.filter(singleSeaLife => { 
+    return !singleSeaLife.isDead; 
+  });
+  
+  let myIndex = Math.floor(Math.random() * aliveArray.length);
+  
+  aliveArray[myIndex].whenHit();
 
+  let allFishDivs = [...document.getElementsByTagName("div")];
+  
+
+  allFishDivs.forEach(fishDiv => {
+    let fishInstance = seaLife[allFishDivs.indexOf(fishDiv)];
+    fishDiv.innerHTML = fishInstance.hitpoints;
+    if (!fishDiv.classList.contains("splash") && fishInstance.isDead) {     fishDiv.classList.add("splash");
+    }
+  })
+ 
+  if (seaLife[myIndex].isDead && myIndex === 0) {
+    killAll();
+    gameOver();
+  }
+};
+
+const killAll = () => { 
+  let allFishDivs = [...document.getElementsByTagName("div")];
+  for (let i = 0; i < seaLife.length; i++) {
+      allFishDivs[i].innerHTML = 0;
+      allFishDivs[i].classList.add("splash");
+      }
+};
 
 const gameOver = () => {
   alert("Thank you for your efforts, you have been a huge help");
