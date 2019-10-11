@@ -21,12 +21,12 @@ class General {
 }
 
 class Ariel extends General {
-  hitpoints = 80;
+  hitpoints = 1;
   damageTaken = 7;
 }
 
 class Flounder extends Ariel {
-  hitpoints = 68;
+  hitpoints = 60;
   damageTaken = 10;
 }
 
@@ -74,49 +74,37 @@ const start = () => {
 };
 
 const hitSeaLife = () => {
-
-  
   let aliveArray = seaLife.filter(singleSeaLife => { 
     return !singleSeaLife.isDead; 
   });
   
   let myIndex = Math.floor(Math.random() * aliveArray.length);
-  // because the aliveArray length is smaller - because the html isnt updating dynamically it effects the rest of the script 
   
-  // if isDead = true then focus only on alive array ... 
+  aliveArray[myIndex].whenHit();
+
+  let allFishDivs = [...document.getElementsByTagName("div")];
   
-  // if 4 dies then 5 becomes the new four (switch statement??)
 
-  // hard code that there is always the length -- when 0 
-
-  // 
-
-  let aliveIndices = []
-  aliveArray.forEach(instance => {
-    console.log(seaLife.indexOf(instance));
-    aliveIndices.push(seaLife.indexOf(instance))
-  });
-  console.log(myIndex, "hey");
-  console.log('ALIVE ARRAY',aliveArray);
-  console.log(aliveIndices, "yo solve it");
-  //seaLife = aliveArray;
-  instanceToHit = seaLife[aliveIndices[myIndex]];
-  //seaLife[myIndex].whenHit();
-  instanceToHit.whenHit();
-
-  document.querySelectorAll("div")[myIndex].innerHTML =
-    seaLife[myIndex].hitpoints;
-
-  console.log(seaLife);
-  if (seaLife[myIndex].isDead) {
-    document.querySelectorAll("div")[myIndex].classList.add("splash");
-  };
-
+  allFishDivs.forEach(fishDiv => {
+    let fishInstance = seaLife[allFishDivs.indexOf(fishDiv)];
+    fishDiv.innerHTML = fishInstance.hitpoints;
+    if (!fishDiv.classList.contains("splash") && fishInstance.isDead) {     fishDiv.classList.add("splash");
+    }
+  })
+ 
   if (seaLife[myIndex].isDead && myIndex === 0) {
+    killAll();
     gameOver();
   }
 };
 
+const killAll = () => { 
+  let allFishDivs = [...document.getElementsByTagName("div")];
+  for (let i = 0; i < seaLife.length; i++) {
+      allFishDivs[i].innerHTML = 0;
+      allFishDivs[i].classList.add("splash");
+      }
+};
 
 const gameOver = () => {
   alert("Thank you for your efforts, you have been a huge help");
