@@ -21,12 +21,12 @@ class General {
 }
 
 class Ariel extends General {
-  hitpoints = 1;
+  hitpoints = 80;
   damageTaken = 7;
 }
 
 class Flounder extends Ariel {
-  hitpoints = 60;
+  hitpoints = 68;
   damageTaken = 10;
 }
 
