@@ -17,5 +17,8 @@ You should be able to start a new game once the game is over. Some text visualis
 ­ Each starts with 45 hit points 
 ­ Each loses 12 hit points each time it is hit.
 
-#### Rules
+### Rules
 You may only use JS / CSS / HTML, no frameworks or libraries. You should be able to solve this in under 150 lines including comments and any more than that is a sign you have over complicated the problem. You can use either procedural or object oriented approaches. You can use basic html and css to tidy up the output but no more.
+
+### Setup 
+There is no specific setup required. It is also viewable on github pages: https://sofiapaavola.github.io/Ursulas-Lair/
