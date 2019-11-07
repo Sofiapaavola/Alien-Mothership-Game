@@ -84,7 +84,6 @@ const hitSeaLife = () => {
 
   let allFishDivs = [...document.getElementsByTagName("div")];
   
-
   allFishDivs.forEach(fishDiv => {
     let fishInstance = seaLife[allFishDivs.indexOf(fishDiv)];
     fishDiv.innerHTML = fishInstance.hitpoints;
