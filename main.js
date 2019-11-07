@@ -70,7 +70,7 @@ const compileSeaLife = () => {
 };
 
 const start = () => {
-  document.getElementById("button").addEventListener("click", hitSeaLife);
+  document.getElementById("button").addEventListener("click", hitSeaLife)
 };
 
 const hitSeaLife = () => {
